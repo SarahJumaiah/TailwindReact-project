@@ -1,75 +1,15 @@
-import { useState } from "react";
+import Navbar from "./components/Navbar";
 import Card from "./components/Card";
+import { Link } from "react-router-dom";
+import Footer from "./components/Footer";
 import VideoCard from "./components/VideoCard";
 
 function App() {
-  const [isMenuOpen, setMenuOpen] = useState(false);
-  const toggleMenu = () => {
-    setMenuOpen(!isMenuOpen);
-  };
-
   return (
     <>
       <div className="min-h-screen bg-[#f5f5f5] relative">
+        <Navbar />
         <div className="absolute top-0 right-0 h-full w-1/4 bg-brown-light z-0"></div>
-
-        <nav className="flex justify-between items-center py-4 px-8 relative z-10">
-          <div className="flex items-center space-x-10">
-            <div className="text-3xl font-bold" style={{ color: "#be7c6b" }}>
-              DA
-            </div>
-
-            <ul className="hidden md:flex space-x-6 text-lg font-bold">
-              <li className="text-brown-light cursor-pointer">Home</li>
-              <li className="hover:text-gray-600 cursor-pointer">About</li>
-              <li className="hover:text-gray-600 cursor-pointer">Reviews</li>
-              <li className="hover:text-gray-600 cursor-pointer">Videos</li>
-              <li className="hover:text-gray-600 cursor-pointer">Contact</li>
-            </ul>
-          </div>
-
-          <div className="hidden md:flex space-x-4 items-center">
-            <div className="text-white cursor-pointer">
-              <i className="fab fa-youtube bg-transparent text-2xl"></i>
-            </div>
-            <div className="text-white cursor-pointer">
-              <i className="fab fa-instagram bg-transparent text-2xl"></i>
-            </div>
-            <div className="text-white cursor-pointer">
-              <i className="fab fa-facebook bg-transparent text-2xl"></i>
-            </div>
-
-            <button className="border border-white text-white py-2 px-6 hover:bg-[#be7c68] hover:text-white transition duration-300 font-bold">
-              LET’S TALK
-            </button>
-          </div>
-
-          <button
-            className="text-white md:hidden bg-black bg-opacity-20 p-2 rounded-full"
-            onClick={toggleMenu}
-          >
-            <i className="fas fa-bars"></i>
-          </button>
-        </nav>
-
-        {isMenuOpen && (
-          <div className="absolute top-0 left-0 w-full h-full bg-white z-50 flex flex-col justify-center items-center">
-            <ul className="flex flex-col space-y-8 text-lg font-bold text-gray-800">
-              <li className="cursor-pointer">Home</li>
-              <li className="cursor-pointer">About</li>
-              <li className="cursor-pointer">Reviews</li>
-              <li className="cursor-pointer">Videos</li>
-              <li className="cursor-pointer">Contact</li>
-            </ul>
-            <button
-              onClick={toggleMenu}
-              className="absolute top-4 right-4 text-gray-800 text-2xl"
-            >
-              &times;
-            </button>
-          </div>
-        )}
-
         <section className="container mx-auto px-8 py-16 flex flex-col md:flex-row items-center relative z-10">
           <div className="md:w-1/2 w-full relative order-1 md:order-2 mb-8 md:mb-0">
             <img
@@ -347,35 +287,7 @@ function App() {
           </button>
         </div>
       </section>
-
-      <footer className="bg-gray-50 py-8 px-4 sm:px-40">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between text-gray-600">
-          <div className="mb-4 md:mb-0">
-            <h2 className="text-4xl font-bold text-[#c99484]">DA</h2>
-            <p className="text-sm">© 2024 Food Blogger & Influencer</p>
-          </div>
-
-          <ul className="flex space-x-6 text-sm mb-4 md:mb-0">
-            <li className="hover:text-gray-800 cursor-pointer">Home</li>
-            <li className="hover:text-gray-800 cursor-pointer">About</li>
-            <li className="hover:text-gray-800 cursor-pointer">Reviews</li>
-            <li className="hover:text-gray-800 cursor-pointer">Videos</li>
-            <li className="hover:text-gray-800 cursor-pointer">Contact</li>
-          </ul>
-
-          <div className="flex space-x-4 text-[#c99484] hover:text-[#000000]">
-            <i className="fab fa-youtube cursor-pointer"></i>
-            <i className="fab fa-instagram cursor-pointer"></i>
-            <i className="fab fa-facebook cursor-pointer"></i>
-          </div>
-        </div>
-
-        <div className="text-center mt-6">
-          <p className="text-xs text-gray-600">
-            Powered by Food Blogger & Influencer
-          </p>
-        </div>
-      </footer>
+      <Footer />
       <div className="hover:bg-blue-700 hover:text-white st-customize-btn-item fixed right-0 bottom-[48%] flex items-center bg-white p-4 text-gray-800 cursor-pointer shadow-lg z-50 group">
         <span className="flex items-center gap-3">
           <svg
